@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+<!-- Tells the browser this is an HTML5 document -->
 <html lang="en">
 
 <head>
+    <!-- Allows special characters to display correctly -->
     <meta charset="UTF-8">
 
     <!-- Makes the webpage display correctly on phones and laptops -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Text shown on the browser tab -->
     <title>Linda's Smart Light Control</title>
 
     <!-- Connects this HTML page to our CSS file -->
@@ -15,37 +18,66 @@
 
 <body>
 
-    <!-- Main heading for the carer's control page -->
-    <h1>Linda's Smart Room Light Control</h1>
+    <!-- The page is split into two columns: a side panel (title and
+         instructions) on the left and the list of rooms on the right.
+         On small screens the two parts stack on top of each other. -->
+    <div class="page">
 
-    <!-- Short explanation of what the page is used for -->
-    <p>Select a room to switch its light ON or OFF.</p>
+        <!-- Side panel: heading and short explanation for the carer -->
+        <header class="side">
+            <h1>Linda's Home Lights</h1>
+            <p>Use the switches to turn a room's light ON or OFF.</p>
+        </header>
 
-    <!-- Living room control -->
-    <div class="room-control">
-        <label>
-            <input type="checkbox" id="livingRoom">
-            Living Room
-        </label>
+        <!-- List of rooms, one row per light -->
+        <main>
+            <ul class="rooms">
+
+                <!-- Living room control
+                     id="livingRoom" is read by script.js -->
+                <li class="room">
+                    <label>
+                        <span class="room-name">Living Room</span>
+                        <span class="control">
+                            <input type="checkbox" id="livingRoom">
+                            <!-- Shows OFF/ON text; filled in by style.css -->
+                            <span class="state"></span>
+                        </span>
+                    </label>
+                </li>
+
+                <!-- Bathroom control
+                     id="bathroom" is read by script.js -->
+                <li class="room">
+                    <label>
+                        <span class="room-name">Bathroom</span>
+                        <span class="control">
+                            <input type="checkbox" id="bathroom">
+                            <span class="state"></span>
+                        </span>
+                    </label>
+                </li>
+
+                <!-- Closet control
+                     id="closet" is read by script.js -->
+                <li class="room">
+                    <label>
+                        <span class="room-name">Closet</span>
+                        <span class="control">
+                            <input type="checkbox" id="closet">
+                            <span class="state"></span>
+                        </span>
+                    </label>
+                </li>
+
+            </ul>
+        </main>
+
     </div>
 
-    <!-- Bathroom control -->
-    <div class="room-control">
-        <label>
-            <input type="checkbox" id="bathroom">
-            Bathroom
-        </label>
-    </div>
-
-    <!-- Closet control -->
-    <div class="room-control">
-        <label>
-            <input type="checkbox" id="closet">
-            Closet
-        </label>
-    </div>
-
-    <!-- Connects the webpage to our JavaScript file -->
+    <!-- Connects the webpage to our JavaScript file.
+         It is placed at the end of the body so the checkboxes exist
+         before the script tries to find them. -->
     <script src="script.js"></script>
 
 </body>
